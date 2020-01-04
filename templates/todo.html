@@ -1,0 +1,23 @@
+<h1>To-Do lists are</h1>
+
+<ul>
+    {% for task in all %}
+    <li>{{task.contents}}
+        <form action="/delete/{{task.id}}/" style="display: inline;" method="post">
+            {% csrf_token %}
+            
+            <input type="submit" value="Delete To-Do"/>
+        
+        </form>
+    </li><br/>
+    {% endfor %}
+</ul>
+<br/><br/>
+<form action="/add/" method="post">
+    {% csrf_token %}
+    <textarea cols="40"  rows="3" name="contents"></textarea>
+    <br/><br/>
+    <input type="submit" value="Add To-Do"/>
+
+</form>
+

@@ -1,4 +1,14 @@
 
+
+
+
+
+
+
+
+
+
+
 <!doctype html>
 <html lang="en">
 
@@ -71,28 +81,25 @@
 
     <main role="main">
 
+        <br/><br/>
         
-
-        <div class="album py-5 bg-light">
-            <div class="container">
-
-                <div class="row">
-                    {% for task in all %}
-
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-header"><h2><b>{{task.contents}}</b></h2>
-                            
-                             </div>
-                             <br/>
-                        </div>
-                     </div>
-                     
-                    {% endfor %}
-                    <br/>   <br/>                       
-                </div>
-            </div>
-        </div>
+        <ol>
+            {% for task in all %}
+            <br/>
+            <li>{{task.contents}}
+                
+                <form action="/edit/{{task.id}}/" style="display: inline;" method="post">
+                    {% csrf_token %}
+                    <textarea cols="40"  rows="3" name="contents" placeholder="Edit The To-Do Item"></textarea>
+                    <input type="submit" class="btn btn-primary" value="edit To-Do"/>
+                
+                </form>
+        
+            </li><br/>
+            {% endfor %}
+        </ol>
+      
+        
 
     </main>
 
@@ -107,3 +114,7 @@
 </body>
 
 </html>
+
+
+
+

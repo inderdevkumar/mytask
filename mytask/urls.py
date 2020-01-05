@@ -16,13 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from todo.views import mytaskview, addtask, deletetask
+from todo.views import mytaskview, addtask, deletetask, edittask,updateview, addtodopage, deletetodopage, edittodopage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', mytaskview),
-    path('add/', addtask),
-    path('delete/<int:todo_id>/', deletetask),
+    path('update/', updateview, name='update'),
+    path('add/', addtask, name='add'),
+    path('addtodo/', addtodopage, name='addtodo'),
+    path('deletetodo/', deletetodopage, name='deletetodo'),
+    path('edittodo/', edittodopage, name='edittodo'),
+    path('delete/<int:todo_id>/', deletetask, name='delete'),
+    path('edit/<int:edit_id>/', edittask, name='edit'),
 
 
 ]

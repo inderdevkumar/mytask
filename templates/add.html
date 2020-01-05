@@ -1,4 +1,7 @@
 
+
+
+
 <!doctype html>
 <html lang="en">
 
@@ -70,30 +73,17 @@
     </header>
 
     <main role="main">
+<br/><br/>
 
-        
 
-        <div class="album py-5 bg-light">
-            <div class="container">
+<form action="/add/" style="display: inline;" method="post">
+    {% csrf_token %}
+    <textarea cols="40"  rows="3" name="contents" placeholder="Add The To-Do Item"></textarea>
+    <input type="submit" class="btn btn-success" value="Add To-Do"/>
 
-                <div class="row">
-                    {% for task in all %}
-
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-header"><h2><b>{{task.contents}}</b></h2>
-                            
-                             </div>
-                             <br/>
-                        </div>
-                     </div>
-                     
-                    {% endfor %}
-                    <br/>   <br/>                       
-                </div>
-            </div>
-        </div>
-
+</form>
+      
+   
     </main>
 
     <footer class="text-muted">
@@ -107,3 +97,7 @@
 </body>
 
 </html>
+
+
+
+

@@ -1,4 +1,10 @@
 
+
+
+
+
+
+
 <!doctype html>
 <html lang="en">
 
@@ -71,28 +77,25 @@
 
     <main role="main">
 
+        <br/><br/>
+
+<ol>
+    {% for task in all %}
+    <br/>
+    
+    <li>{{task.contents}}
+        <form action="/delete/{{task.id}}/" style="display: inline;" method="post">
+            {% csrf_token %}
+            
+            <input type="submit" class="btn btn-danger" value="Delete To-Do"/>
         
+        </form>
 
-        <div class="album py-5 bg-light">
-            <div class="container">
-
-                <div class="row">
-                    {% for task in all %}
-
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-header"><h2><b>{{task.contents}}</b></h2>
-                            
-                             </div>
-                             <br/>
-                        </div>
-                     </div>
-                     
-                    {% endfor %}
-                    <br/>   <br/>                       
-                </div>
-            </div>
-        </div>
+    </li>
+    {% endfor %}
+</ol>
+      
+        
 
     </main>
 
@@ -107,3 +110,7 @@
 </body>
 
 </html>
+
+
+
+

@@ -1,4 +1,5 @@
 
+
 <!doctype html>
 <html lang="en">
 
@@ -70,29 +71,27 @@
     </header>
 
     <main role="main">
-
+        <br/><br/>
         
-
         <div class="album py-5 bg-light">
             <div class="container">
 
                 <div class="row">
-                    {% for task in all %}
+                    
 
                     <div class="col-md-4">
                         <div class="card">
-                            <div class="card-header"><h2><b>{{task.contents}}</b></h2>
                             
-                             </div>
-                             <br/>
+                              <a href="{% url 'addtodo' %}" class="btn btn-success">For Add</a><br/><br/>
+                              <a href="{% url 'deletetodo' %}" class="btn btn-danger">For Delete</a><br/><br/>
+                              <a href="{% url 'edittodo' %}" class="btn btn-primary">For Edit</a>
                         </div>
-                     </div>
-                     
-                    {% endfor %}
-                    <br/>   <br/>                       
+                    </div>
                 </div>
+                                          
             </div>
         </div>
+        
 
     </main>
 
@@ -107,3 +106,6 @@
 </body>
 
 </html>
+
+
+
